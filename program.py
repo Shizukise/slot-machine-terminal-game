@@ -40,6 +40,22 @@ print(score)
 #we use the symbolconversion function with the rowscore function as parameter
 
 
-play1 = moneysymbol.symbolconversion(score)
+playrow = moneysymbol.symbolconversion(score)
 
-print(play1)
+test = [3,3,3]
+
+#trying to make the prize action for duplicates and 3 in a row
+
+def prize(play):
+    for symbol in play:
+        if play.count(symbol) == 3:
+            return "Jackpot"
+        elif play.count(symbol) > 1:
+            return "Two of a Kind"
+    else:
+        return "Better luck next time" 
+      
+
+print(prize(playrow))
+
+
