@@ -21,11 +21,10 @@ def symbolconversion(ourlist):
                play.append(ourSymbols[number])
         return play
 
-
+#variable to hold the 3 random numbers
 play = rowscore()
 
-print(symbolconversion(play))
-
+#variable that contains the result of converting the numbers into symbols
 slotrow = symbolconversion(play)
 
 def prize(play):
@@ -37,5 +36,30 @@ def prize(play):
     else:
         return "Better luck next time" 
    
+#prize variable below, contains the function prize that takes as parameter the variable with the symbols converted. 
+prize = prize(play)
 
-print(prize(slotrow))
+
+#print(slotrow)
+#print(prize)
+
+
+class Player:
+     
+
+    def __init__(self,balance,name):
+          self.balance = balance
+          self.name = name
+
+
+    def play_a_row(self):
+        if prize == "Two of a kind":
+            return self.balance * 2
+               
+
+
+player1 = Player(300,"Maikal")
+
+playerplay = player1.play_a_row()
+
+print(playerplay)
