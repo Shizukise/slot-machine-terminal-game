@@ -2,6 +2,21 @@ import random
 
 ourSymbols = {1 : "$" , 2 : "Ace", 3 : "Pot", 4 : "Cereja", 5 : "K", 6 : "j", 7: "Poker"}
 
+
+#playerclass below
+
+
+class Player:
+    
+
+
+    def __init__(self,balance):
+        
+        self.balance = balance
+
+
+
+
 class SlotPlay:
 
     def __init__(self,number,symbol,bonus,jackpot):
@@ -58,4 +73,27 @@ def prize(play):
 
 print(prize(playrow))
 
+
+def multiplicator(string,nlist):
+    multiplier = 0
+    if string == "Jackpot":
+        for number in nlist:
+            if number == 1:
+                multiplier += 2
+            elif number == 2:
+                multiplier += 1.50
+            elif number == 3:
+                multiplier += 1.40
+            elif number == 4:
+                multiplier += 1.30
+            elif number == 5:
+                multiplier += 1.20
+            elif number == 6:
+                multiplier += 1.10
+            elif number == 7:
+                multiplier += 1.05
+    return multiplier            
+
+           
+print(multiplicator(prize(playrow),ourSymbols))
 
