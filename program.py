@@ -3,63 +3,34 @@ import random
 ourSymbols = {1 : "$" , 2 : "Ace", 3 : "Pot", 4 : "Cereja", 5 : "K", 6 : "j", 7: "Poker"}
 
 
-#playerclass below
+acc_balance = int(input("Enjoy the slot machine! First, how much do you want to deposit? "))
 
+#print(balance)
+player_balance = acc_balance
 
-class Player:
-    
+#function to retrieve 3 random numbers from 1 to 7
 
-
-    def __init__(self,balance):
-        
-        self.balance = balance
-
-
-
-
-class SlotPlay:
-
-    def __init__(self,number,symbol,bonus,jackpot):
-        
-
-        self.symbol = symbol
-        self.bonus = bonus
-        self.jackpot = jackpot
-        self.number = number
-
-####  vvvv  Function to give us 3 random number, numbers that later will be converted to symbols
-    def rowscore(self):
+def rowscore():
         scores = []
         scores.append(random.randint(1, 7))
         scores.append(random.randint(1, 7))
         scores.append(random.randint(1, 7))
         return scores
-### vvv convert the random number list into a random symbol combination
-    def symbolconversion(self,ourlist):
+
+#function to convert the numbers into our slot symbols
+
+def symbolconversion(ourlist):
         play = []
         for number in ourlist:
            if number in ourSymbols:
                play.append(ourSymbols[number])
         return play
-               
 
+#variable to hold the 3 random numbers
+#play = rowscore()
 
-
-
-#below needs and object of this class done to work
-moneysymbol = SlotPlay(1,"%",3,7)
-score = moneysymbol.rowscore()
-
-print(score)
-
-#we use the symbolconversion function with the rowscore function as parameter
-
-
-playrow = moneysymbol.symbolconversion(score)
-
-test = [3,3,3]
-
-#trying to make the prize action for duplicates and 3 in a row
+#variable that contains the result of converting the numbers into symbols
+#slotrow = symbolconversion(play)
 
 def prize(play):
     for symbol in play:
@@ -69,31 +40,18 @@ def prize(play):
             return "Two of a Kind"
     else:
         return "Better luck next time" 
-      
+   
+#prize variable below, contains the function prize that takes as parameter the variable with the symbols converted. 
+#prize = prize(play)
 
-print(prize(playrow))
+#print(slotrow)
+#print(slotrow)
+#print(prize)
 
 
-def multiplicator(string,nlist):
-    multiplier = 0
-    if string == "Jackpot":
-        for number in nlist:
-            if number == 1:
-                multiplier += 2
-            elif number == 2:
-                multiplier += 1.50
-            elif number == 3:
-                multiplier += 1.40
-            elif number == 4:
-                multiplier += 1.30
-            elif number == 5:
-                multiplier += 1.20
-            elif number == 6:
-                multiplier += 1.10
-            elif number == 7:
-                multiplier += 1.05
-    return multiplier            
 
-           
-print(multiplicator(prize(playrow),ourSymbols))
 
+
+reward = prize(symbolconversion(rowscore()))
+
+print(reward)

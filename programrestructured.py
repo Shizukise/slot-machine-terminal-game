@@ -27,10 +27,10 @@ def symbolconversion(ourlist):
         return play
 
 #variable to hold the 3 random numbers
-#play = rowscore()
+play = rowscore()
 
 #variable that contains the result of converting the numbers into symbols
-#slotrow = symbolconversion(play)
+slotrow = symbolconversion(play)
 
 def prize(play):
     for symbol in play:
@@ -58,22 +58,45 @@ class Player:
         self.name = name
 
     def welcoming(self):
-        print("Hello {name}! Your current balance is {balance}".format(name = self.name, balance = self.balance))
+        print("Hello {name}! Your current balance is {balance}.".format(name = self.name, balance = self.balance))
 
 
 
+class SlotGame:
 
 
-
-
-
-
-
-
-
-
-
+    def __init__(self,player,saldo,):
+         
+        self.player = player
+        self.saldo = saldo
+        self.bet = 0
+         
+          
+    def place_bet(self,player,saldo,bet):
+        bet_size = int(input("{name}, how much do you want to bet? ".format(name = player)))
+        bet = bet_size
+        pot = 0
+        if bet <= saldo:
+            reward = prize(symbolconversion(rowscore()))
+            print(slotrow)
+            multiplier = reward
+            if multiplier == "Better luck next time":
+                pass
+            elif multiplier == "Jackpot":
+                pot += saldo
+            elif multiplier == "Two of a Kind":
+                pot += saldo/2
+            return pot
+        else:
+            return "You have insufficient money for that bet!"
+          
+            
 
 player1 = Player("Maikal",player_balance)
 player1.welcoming()
+print(player1.balance)
 
+
+game1 = SlotGame(player1,player1.balance)
+
+game1.place_bet(player1,player1.balance,0)
