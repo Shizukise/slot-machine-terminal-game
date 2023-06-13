@@ -3,6 +3,11 @@ import random
 ourSymbols = {1 : "$" , 2 : "Ace", 3 : "Pot", 4 : "Cereja", 5 : "K", 6 : "j", 7: "Poker"}
 
 
+acc_balance = int(input("Enjoy the slot machine! First, how much do you want to deposit? "))
+
+#print(balance)
+player_balance = acc_balance
+
 #function to retrieve 3 random numbers from 1 to 7
 
 def rowscore():
@@ -22,10 +27,10 @@ def symbolconversion(ourlist):
         return play
 
 #variable to hold the 3 random numbers
-play = rowscore()
+#play = rowscore()
 
 #variable that contains the result of converting the numbers into symbols
-slotrow = symbolconversion(play)
+#slotrow = symbolconversion(play)
 
 def prize(play):
     for symbol in play:
@@ -37,9 +42,9 @@ def prize(play):
         return "Better luck next time" 
    
 #prize variable below, contains the function prize that takes as parameter the variable with the symbols converted. 
-prize = prize(play)
+#prize = prize(play)
 
-
+#print(slotrow)
 #print(slotrow)
 #print(prize)
 
@@ -47,19 +52,28 @@ prize = prize(play)
 class Player:
      
 
-    def __init__(self,balance,name):
-          self.balance = balance
-          self.name = name
+    def __init__(self,name, balance):
+          
+        self.balance = balance
+        self.name = name
+
+    def welcoming(self):
+        print("Hello {name}! Your current balance is {balance}".format(name = self.name, balance = self.balance))
 
 
-    def play_a_row(self):
-        if prize == "Two of a kind":
-            return self.balance * 2
-               
 
 
-player1 = Player(300,"Maikal")
 
-playerplay = player1.play_a_row()
 
-print(playerplay)
+
+
+
+
+
+
+
+
+
+player1 = Player("Maikal",player_balance)
+player1.welcoming()
+
