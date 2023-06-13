@@ -99,4 +99,12 @@ print(player1.balance)
 
 game1 = SlotGame(player1,player1.balance)
 
-game1.place_bet(player1,player1.balance,0)
+player_input = input("Do you want to bet? ")
+
+while player_input == "y".lower() or player_input == "yes".lower():
+    bets = []
+    betin = game1.place_bet(player1,player1.balance,0)
+    bets.append(betin)
+    print(bets)
+    
+
