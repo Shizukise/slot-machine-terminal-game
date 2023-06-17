@@ -45,7 +45,7 @@ def prize(play):
         return "Better luck next time" 
    
 #prize variable below, contains the function prize that takes as parameter the variable with the symbols converted. 
-#prize = prize(play)
+
 
 #print(slotrow)
 #print(slotrow)
@@ -83,13 +83,18 @@ class SlotGame:
         cbalance = saldo
         multiplier =  prize(symbolconversion(rowscore()))
         print(slotrow)
+        print(multiplier)
         if player_bet <= cbalance and multiplier == "Better luck next time":
-            pass
+            return "You got nothing from your bet."
         elif player_bet <= cbalance and multiplier == "Two of a Kind":
             cbalance += (player_bet * 1.50)
+            print("You got {pot} from your bet!".format(pot = int(player_bet * 1.50)))
+            print(cbalance)
             return cbalance
         elif player_bet <= cbalance and multiplier == "Jackpot":
-            cbalance += (player_bet * 2)
+            cbalance += ( player_bet * 2)
+            print("You got {pot} from your bet!".format(pot = int(player_bet * 2)))
+            print(cbalance)
             return cbalance
         else:
             return "You have insufficient funds for that bet"
@@ -103,7 +108,7 @@ player1.welcoming()
 game1 = SlotGame(player1,player1.balance)
 
 player_input = input("Do you want to bet? ")
-player_bet = input("How much do you want to bet? ")
+player_bet = int(input("How much do you want to bet? "))
 
 
-game1.place_bet()
+game1.place_bet(game1.player)
