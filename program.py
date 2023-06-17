@@ -79,13 +79,16 @@ class SlotGame:
     #the multiplier differs.
 
     def place_bet(self,saldo,):
+        
         saldo = self.saldo
         cbalance = saldo
         multiplier =  prize(symbolconversion(rowscore()))
         print(slotrow)
         print(multiplier)
         if player_bet <= cbalance and multiplier == "Better luck next time":
-            return "You got nothing from your bet."
+            cbalance = cbalance - player_bet
+            print(cbalance)
+            return cbalance
         elif player_bet <= cbalance and multiplier == "Two of a Kind":
             cbalance += (player_bet * 1.50)
             print("You got {pot} from your bet!".format(pot = int(player_bet * 1.50)))
