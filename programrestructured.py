@@ -70,13 +70,20 @@ class SlotGame:
         self.player = player
         self.saldo = saldo
         self.bet = 0
-         
-          
+
+
+    def __repr__(self):
+        return "{name}, ".format(name = self.name)
+
+
+    #here we will store the row of symbols converted to a string already in a variable, and depending on the string we get,
+    #the multiplier differs.
+
     def place_bet(self,player,saldo,bet):
         bet_size = int(input("{name}, how much do you want to bet? ".format(name = player)))
         bet = bet_size
         pot = 0
-        if bet <= saldo:
+        if bet <= saldo and player_input == "yes".lower():
             reward = prize(symbolconversion(rowscore()))
             print(slotrow)
             multiplier = reward
@@ -84,13 +91,17 @@ class SlotGame:
                 pass
             elif multiplier == "Jackpot":
                 pot += saldo
+                saldo = saldo + pot
             elif multiplier == "Two of a Kind":
                 pot += saldo/2
-            return pot
+                saldo = saldo + pot
+            return saldo
         else:
             return "You have insufficient money for that bet!"
-          
-            
+        
+
+
+        
 
 player1 = Player("Maikal",player_balance)
 player1.welcoming()
@@ -101,10 +112,6 @@ game1 = SlotGame(player1,player1.balance)
 
 player_input = input("Do you want to bet? ")
 
-while player_input == "y".lower() or player_input == "yes".lower():
-    bets = []
-    betin = game1.place_bet(player1,player1.balance,0)
-    bets.append(betin)
-    print(bets)
+
     
 
