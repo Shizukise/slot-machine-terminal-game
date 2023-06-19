@@ -6,7 +6,9 @@ print("Welcome to Terminal Casino!")
 print("---------------------------")
 print("You will be playing our slot machine!")
 
-acc_balance = int(input("Enjoy the slot machine! First, how much do you want to deposit? "))
+player1name = input("First, tell me your name ")
+
+acc_balance = int(input("Enjoy the slot machine! How much do you want to deposit? "))
 
 #print(balance)
 player_balance = acc_balance
@@ -105,13 +107,26 @@ class SlotGame:
 
         
 
-player1 = Player("Maikal",player_balance)
+player1 = Player(player1name,player_balance)
 player1.welcoming()
 
 game1 = SlotGame(player1,player1.balance)
 
 player_input = input("Do you want to bet? ")
-player_bet = int(input("How much do you want to bet? "))
 
 
-game1.place_bet(game1.player)
+
+
+if player_input == "yes".lower() or player_input == "y".lower():
+    count = int(input("How many rolls you want to go for? "))
+    print("Excelent! you will be rolling the slot machine {count} times!".format(count = count))
+    while count > 0:
+        for fois in range(0,count):
+            count = count - 1
+            player_bet = int(input("How much do you want to bet? "))
+            game1.place_bet(game1.player)
+else:
+        print("You can come back and play anytime you want")
+
+
+        
