@@ -55,7 +55,7 @@ def prize(play):
 
 
 
-multiplier =  prize(symbolconversion(play))
+
 
 
 class Player:
@@ -107,8 +107,8 @@ class SlotGame:
             self.saldo = cbalance
             print("Your current balance is {n}.".format(n = cbalance))
             return self.saldo
-        else:
-            return "You have insufficient funds for that bet"
+        elif player_bet > cbalance:
+             return "You have insufficient funds for this bet."
 
 
 
@@ -129,6 +129,7 @@ if player_input == "yes".lower() or player_input == "y".lower():
     print("Excelent! you will be rolling the slot machine {count} times!".format(count = count))
     while count > 0:
         for fois in range(0,count):
+            multiplier =  prize(symbolconversion(play))
             game1.place_bet(game1.player)
             count = count - 1
             
