@@ -54,6 +54,10 @@ def prize(play):
 #print(prize)
 
 
+
+multiplier =  prize(symbolconversion(play))
+
+
 class Player:
      
 
@@ -84,7 +88,6 @@ class SlotGame:
         
         margin = self.saldo
         cbalance = margin
-        multiplier =  prize(symbolconversion(rowscore()))
         print(slotrow)
         print(multiplier)
         if player_bet <= cbalance and multiplier == "Better luck next time":
@@ -128,6 +131,7 @@ if player_input == "yes".lower() or player_input == "y".lower():
         for fois in range(0,count):
             game1.place_bet(game1.player)
             count = count - 1
+            
 else:
         print("You can come back and play anytime you want")
 
