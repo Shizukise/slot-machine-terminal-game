@@ -80,32 +80,34 @@ class SlotGame:
     #here we will store the row of symbols converted to a string already in a variable, and depending on the string we get,
     #the multiplier differs.
 
-    def place_bet(self,saldo,):
+    def place_bet(self,margin,):
         
-        saldo = self.saldo
-        cbalance = saldo
+        margin = self.saldo
+        cbalance = margin
         multiplier =  prize(symbolconversion(rowscore()))
         print(slotrow)
         print(multiplier)
         if player_bet <= cbalance and multiplier == "Better luck next time":
             cbalance = cbalance - player_bet
-            print(cbalance)
-            return cbalance
+            self.saldo = cbalance
+            print("Your current balance is {n}.".format(n = cbalance))
+            return self.saldo
         elif player_bet <= cbalance and multiplier == "Two of a Kind":
             cbalance += (player_bet * 1.50)
             print("You got {pot} from your bet!".format(pot = int(player_bet * 1.50)))
-            print(cbalance)
-            return cbalance
+            self.saldo = cbalance
+            print("Your current balance is {n}.".format(n = cbalance))
+            return self.saldo
         elif player_bet <= cbalance and multiplier == "Jackpot":
             cbalance += ( player_bet * 2)
             print("You got {pot} from your bet!".format(pot = int(player_bet * 2)))
-            print(cbalance)
-            return cbalance
+            self.saldo = cbalance
+            print("Your current balance is {n}.".format(n = cbalance))
+            return self.saldo
         else:
             return "You have insufficient funds for that bet"
 
 
-        
 
 player1 = Player(player1name,player_balance)
 player1.welcoming()
@@ -118,13 +120,14 @@ player_input = input("Do you want to bet? ")
 
 
 if player_input == "yes".lower() or player_input == "y".lower():
+    
     count = int(input("How many rolls you want to go for? "))
+    player_bet = int(input("How much do you want to bet? "))
     print("Excelent! you will be rolling the slot machine {count} times!".format(count = count))
     while count > 0:
         for fois in range(0,count):
-            count = count - 1
-            player_bet = int(input("How much do you want to bet? "))
             game1.place_bet(game1.player)
+            count = count - 1
 else:
         print("You can come back and play anytime you want")
 
