@@ -32,10 +32,7 @@ def symbolconversion(ourlist):
         return play
 
 #variable to hold the 3 random numbers
-play = rowscore()
 
-#variable that contains the result of converting the numbers into symbols
-slotrow = symbolconversion(play)
 
 def prize(play):
     for symbol in play:
@@ -129,6 +126,8 @@ if player_input == "yes".lower() or player_input == "y".lower():
     print("Excelent! you will be rolling the slot machine {count} times!".format(count = count))
     while count > 0:
         for fois in range(0,count):
+            play = rowscore()
+            slotrow = symbolconversion(play)
             multiplier =  prize(symbolconversion(play))
             game1.place_bet(game1.player)
             count = count - 1
