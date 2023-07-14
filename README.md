@@ -24,6 +24,11 @@ For this stage of the code we run it in the terminal.
 ![ps](/assets/giphy.gif)
 
 
+The code gets some information about the user, and then depending on the user intention, it outputs an "x" number of plays of a slot machine. It rewards the user with an ammount of points depending on the row of symbols.
+We do this with the random library, by getting 3 random numbers in a function, another function to attribute symbols to this numbers,
+and another to attribute rewards and multipliers depending on the number of equal symbols.
+We use classes to store player data and a class for the game itself that holds the game methods.
+
 
 ## License
 
