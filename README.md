@@ -21,7 +21,7 @@ For this stage of the code we run it in the terminal.
 
 
     ```md
-    ![ps](/giphy.gif)
+    ![ps](/assets/giphy.gif)
     ```
 
 
