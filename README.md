@@ -20,9 +20,9 @@ This project is something i really enjoyed doing and is something i intend to sc
 For this stage of the code we run it in the terminal. 
 
 
-    ```md
-    ![ps](/assets/giphy.gif)
-    ```
+
+![ps](/assets/giphy.gif)
+
 
 
 ## License
