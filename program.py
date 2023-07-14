@@ -2,11 +2,20 @@ import random
 
 ourSymbols = {1 : "$" , 2 : "Ace", 3 : "Pot", 4 : "Cereja", 5 : "K", 6 : "j", 7: "Poker"}
 
+print(" ")
+print(" ")
+print(" ")
+
 print("Welcome to Terminal Casino!")
 print("---------------------------")
 print("You will be playing our slot machine!")
 
-player1name = input("First, tell me your name ")
+print(" ")
+print(" ")
+
+player1name = input("First, please tell me your name : ")
+
+print(" ")
 
 acc_balance = int(input("Enjoy the slot machine! How much do you want to deposit? "))
 
@@ -64,6 +73,8 @@ class Player:
         self.name = name
 
     def welcoming(self):
+        print("--------------------------------------------------------")
+        print(" ")
         print("Hello {name}! Your current balance is {balance}.".format(name = self.name, balance = self.balance))
 
 
@@ -91,18 +102,22 @@ class SlotGame:
             cbalance = cbalance - player_bet
             self.saldo = cbalance
             print("Your current balance is {n}.".format(n = cbalance))
+            print(" ")
             return self.saldo
         elif player_bet <= cbalance and multiplier == "Two of a Kind":
             cbalance += (player_bet * 1.50)
             print("You got {pot} from your bet!".format(pot = int(player_bet * 1.50)))
+            print(" ")
             self.saldo = cbalance
             print("Your current balance is {n}.".format(n = cbalance))
             return self.saldo
         elif player_bet <= cbalance and multiplier == "Jackpot":
             cbalance += ( player_bet * 2)
             print("You got {pot} from your bet!".format(pot = int(player_bet * 2)))
+            print(" ")
             self.saldo = cbalance
             print("Your current balance is {n}.".format(n = cbalance))
+            print(" ")
             return self.saldo
         elif player_bet > cbalance:
              return "You have insufficient funds for this bet."
@@ -114,7 +129,11 @@ player1.welcoming()
 
 game1 = SlotGame(player1,player1.balance)
 
+print(" ")
+
 player_input = input("Do you want to bet? ")
+
+print(" ")
 
 
 
@@ -122,8 +141,11 @@ player_input = input("Do you want to bet? ")
 if player_input == "yes".lower() or player_input == "y".lower():
     
     count = int(input("How many rolls you want to go for? "))
+    print(" ")
     player_bet = int(input("How much do you want to bet? "))
+    print(" ")
     print("Excelent! you will be rolling the slot machine {count} times!".format(count = count))
+    print(" ")
     while count > 0:
         for fois in range(0,count):
             play = rowscore()
@@ -131,9 +153,11 @@ if player_input == "yes".lower() or player_input == "y".lower():
             multiplier =  prize(symbolconversion(play))
             game1.place_bet(game1.player)
             count = count - 1
-            
 else:
         print("You can come back and play anytime you want")
 
+print(" ")
+print(" ")
+print(" ")
 
-        
+print("Your final balance is {balance}!".format(balance = game1.saldo))
